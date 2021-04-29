@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-produto
+spec:
+  selector:
+    matchLabels:
+      app: api-produto
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: api-produto
+    spec:
+      containers:
+      - name: api-produto
+        image: samukamaciel/kubebootcamp-aula02:v2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+          - name: MONGODB_URI
+            value: mongodb://mongouser:mongopwd@mongodb-service:27017/admin
