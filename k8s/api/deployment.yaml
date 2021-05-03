@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api-produto
-        image: samukamaciel/kubebootcamp-aula02:v2
+        image: samukamaciel/kubebootcamp-aula02
         livenessProbe:
           httpGet:
             port: 8080
