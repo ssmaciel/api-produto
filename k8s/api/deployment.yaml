@@ -15,28 +15,6 @@ spec:
       containers:
       - name: api-produto
         image: samukamaciel/kubebootcamp-aula02
-        livenessProbe:
-          httpGet:
-            port: 8080
-            path: /health
-          initialDelaySeconds: 0
-          periodSeconds: 5
-          timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 1
-        readinessProbe:
-          httpGet:
-            port: 8080
-            path: /read
-          initialDelaySeconds: 0
-          periodSeconds: 1
-          timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 1
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 8080
         env:
